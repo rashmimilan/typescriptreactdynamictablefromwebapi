@@ -25,12 +25,12 @@ class BuildDynamicTable extends React.Component<RouteComponentProps<any>, IState
         const api_url = "http://dummy.restapiexample.com/api/v1/employees";
         axios.get(api_url).then(response => {
          this.setState({datarecords: response.data});
-          this.extractKeys();
+          this.extractColumnNames();
          
         })
     }
 
-    private extractKeys() 
+    private extractColumnNames() 
     { 
         const firstrecord = _.keys(this.state.datarecords[0]);
         this.setState({datacolumns: firstrecord,});
